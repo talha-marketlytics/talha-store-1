@@ -22,6 +22,7 @@
         <li class="grid__item {{ grid_item_width }}" {{ block.shopify_attributes }}>
           {%- assign collection = collections[block.settings.collection] -%}
           {% render 'collection-grid-item', collection: collection %}
+          <img src="{{ block.settings.collection_brand_logo | img_url: '100x150' }}" class="collection_brand_logo" alt="Brand Logo">
         </li>
       {% endfor %}
     </ul>
@@ -185,6 +186,11 @@
           },
           "id": "collection",
           "type": "collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "collection_brand_logo",
+          "label": "Collection image"
         }
       ]
     }
